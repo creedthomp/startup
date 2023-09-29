@@ -5,3 +5,6 @@ I will have a username login section.
 Database data: it will save the amount of miles each shoe has 
 WebSocket data: still deciding, but will prbably show who has run the most miles so far. 
 
+![MY shoe](shoe.png)
+![login](login.png)
+![graph](graph.png)
