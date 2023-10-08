@@ -1,0 +1,12 @@
+#table-data {
+    background-color: rgb(176, 179, 183);
+    width: 300px;
+}
+
+td,
+th {
+  color: black;
+  text-align: center;
+  border: black solid thin;
+  padding: 1em;
+}

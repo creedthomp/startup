@@ -1,29 +1,54 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="mainex.css" />
+        <link rel="stylesheet" href="chart.css" />
+        <header>
+            <h1><h1> Running Shoe <br> Mileage Tracker</h1></h1>
+            <nav>
+                <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
+                <menu>
+                <li><a style = "color:aliceblue" href="index.html">Home</a></li>
+                <li><a style = "color:aliceblue" href="shoe.html">Add Miles</a></li>
+                <li><a style = "color:aliceblue" href="chart.html">Mileage Chart</a></li>
+                <li><a style = "color:aliceblue" href="about.html">About</a></li>
+                </menu>
+            </nav>
+        </header>
+        
+            
+    
+    </head>
+
+    <main>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <style>
             .center-text {
                 text-align: center;
             }
         </style>
-        <h1 class= "center-text" >Mileage Graph </h1>
-        <p class= "center-text" >SHOE_______________________ </p> <p class= "center-text" style="color: red" >*insert graph with CSS??* </p>
-    <div class="center-text"><p> MILES</p></div>
-            
-    
-    </head>
+        <h2 class= "center-text" >Mileage Graph </h2>
+        <section>
+            <table id="table-data">
+                <tr>
+                  <th>Shoe</th>
+                  <td>miles</td>
+                </tr>
+                <tr>
+                  <th>Shoe</th>
+                  <td>miles</td>
+                </tr>
+                <tr>
+                    <th>Shoe</th>
+                    <td>miles</td>
+                </tr>
+              </table>
+        </section>
+        <p class= "center-text" style="color: red" >I think I can make a table with JS ? if so I plan on doing that. Also maybe a chart of other users mileage </p>
+        
+    </main>
 
-    <footer>
-        <nav>
-            <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
-            <menu>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="shoe.html">Add Miles</a></li>
-              <li><a href="chart.html">Mileage Chart</a></li>
-              <li><a href="about.html">About</a></li>
-            </menu>
-          </nav>
-    </footer>
-
-
+    <footer> consistent competence = eventual excellence </footer>
 </html>
+
+<!--use float for the chart??-->
