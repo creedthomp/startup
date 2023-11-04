@@ -9,7 +9,7 @@ html {
 }
 
 h1 {
-    font-size: 120%;
+    font-size: 75%;
     color: aliceblue;
     font-weight: 500;
     font-family: sans-serif;
@@ -40,12 +40,12 @@ menu li {
     display: inline;
     font-family: sans-serif;
     font-weight: 100;
-    font-size: medium;
+    font-size: 50%;
 }
 
 main {
     flex: 1;
-    font-size: 30px;
+    font-size: 20px;
   
     display: flex;
     flex-direction: column;

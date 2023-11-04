@@ -93,3 +93,12 @@ button {
     font-family: serif;
     margin-top: 20px;
   }
+
+
+  #loginbutton {
+    padding: 10px 20px;
+    background: rgb(50, 50, 177);
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+  }

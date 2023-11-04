@@ -206,3 +206,213 @@ JAVA SCRIPT
         you pass a function with resolve and reject parameters 
         idk i have no clue
     use json
+
+    USE LOCAL STORAGE AND JSON FOR MY CHART 
+
+
+    Test studying
+In the following code, what does the link element do?
+    The link element is used to link an external resource, typically a stylesheet, to an HTML document.
+In the following code,  what does a div tag do?
+    The <div> tag is a block-level HTML element that is often used as a container to group and style other HTML elements.
+In the following code, what is the difference between the #title and .grid selector?
+    The #title selector targets an element with the id attribute of "title," while the .grid selector targets elements with the class attribute set to "grid." The # selector is used for selecting elements by their unique IDs, while the . selector is used for selecting elements by their class names.
+In the following code, what is the difference between padding and margin?
+    Padding is the space inside an element between its content and its border, while margin is the space outside an element, creating space between the element and other elements around it.
+Given this HTML and this CSS how will the images be displayed using flex?
+    Certainly! In CSS and HTML, "flex" refers to the Flexbox layout model, which is a powerful and flexible way to design the layout and alignment of elements within a container. Flexbox, short for "Flexible Box," is particularly useful for creating responsive and complex layouts, and it simplifies the way elements are arranged in both rows and columns.
+
+        Here are some key concepts and properties associated with Flexbox:
+
+        Container and Items:
+
+        In a Flexbox layout, there is a "container" element (often referred to as the flex container) and its child elements (referred to as "items" or "flex items"). The container is used to define the context for the layout, and the items are the elements that are arranged inside it.
+        Main Axis and Cross Axis:
+
+        Flexbox layouts have two primary axes: the "main axis" and the "cross axis." The main axis is the primary direction in which items are laid out, and the cross axis is the perpendicular axis.
+        Flex Container Properties:
+
+        To create a Flexbox layout, you need to define the container as a flex container. You can do this by setting its display property to flex or inline-flex.
+        Common properties for the flex container include:
+        flex-direction: Determines the main axis direction (row, row-reverse, column, or column-reverse).
+        justify-content: Specifies how items are aligned along the main axis.
+        align-items: Specifies how items are aligned along the cross axis.
+        align-content: Defines the alignment of the flex lines when there's extra space in the container.
+        Flex Items Properties:
+
+        Flex items can be styled using various properties, such as:
+        flex: Specifies how an item grows or shrinks to fill available space.
+        order: Controls the order in which items appear in the flex container.
+        align-self: Overrides the align-items property for individual items.
+        flex-basis: Sets the initial size of a flex item before it starts to grow or shrink.
+        Responsive Layouts:
+
+        Flexbox is particularly useful for creating responsive designs. It can automatically adjust the layout and alignment of items based on available space and screen size.
+        Nesting:
+
+        You can nest flex containers within other flex containers to create complex layouts with different levels of flexibility.
+        Flexbox is a powerful tool for designing web layouts that adapt to different screen sizes and orientations. It simplifies the design process by reducing the need for complex CSS and positioning rules, making it a preferred choice for many layout tasks in modern web development. It's well-supported in all major web browsers, making it a reliable and widely used layout model.
+What does the following padding CSS do?
+
+What does the following code using arrow syntax function declaration do?
+    const a = [1, 2, 3, 4];
+
+    // standard function syntax
+    a.sort(function (v1, v2) {
+    return v1 - v2;
+    });
+
+    // arrow function syntax
+    a.sort((v1, v2) => v1 - v2);
+What does the following code using map with an array output?
+    const numbers = [1, 2, 3, 4, 5];
+
+    // Using arrow function with map() to double each number in the array
+    const doubledNumbers = numbers.map(number => number * 2);
+
+    console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+What does the following code output using getElementByID and addEventListener?
+
+What does the following line of Javascript do using a # selector?
+
+Which of the following are true? (mark all that are true about the DOM)
+    The Document Object Model (DOM) is an object representation of the HTML elements that the browser uses to render the display. The browser also exposes the DOM to external code so that you can write programs that dynamically manipulate the HTML.
+
+    The browser provides access to the DOM through a global variable name document that points to the root element of the DOM. If you open the browser's debugger console window and type the variable name document you will see the DOM for the document the browser is currently rendering.
+    Every element in an HTML document implements the DOM Element interface, which is derived from the DOM Node interface. The DOM Element Interface provides the means for iterating child elements, accessing the parent element, and manipulating the element's attributes. From your JavaScript code, you can start with the document variable and walk through the every element in the tree.
+
+    The DOM provides a set of methods and properties that allow developers to access and modify the content and structure of a document. This enables dynamic content manipulation and interaction with the web page, making it an essential part of client-side scripting.
+
+By default, the HTML span element has a default CSS display property value of: 
+    The default CSS display property value for the HTML <span> element is inline.
+How would you use CSS to change all the div elements to have a background color of red?
+    div {
+        background-color: red;
+    }
+How would you display an image with a hyperlink in HTML?
+    <a href="https://example.com">
+  <img src="image.jpg" alt="Description">
+    </a>
+In the CSS box model, what is the ordering of the box layers starting at the inside and working out?
+    Content > Padding > Border > Margin.
+Given the following HTML, what CSS would you use to set the text "troubl" to green and leave the "double" text unaffected?
+    a class ID
+What will the following code output when executed using a for loop and console.log?
+
+How would you use JavaScript to select an element with the id of “byu” and change the text color of that element to green?
+    document.getElementById("byu").style.color = "green";
+What is the opening HTML tag for a paragraph, ordered list, unordered list, second level heading, first level heading, third level heading?
+    Paragraph: <p>
+    Ordered List: <ol>
+    Unordered List: <ul>
+    Second Level Heading: <h2>
+    First Level Heading: <h1>
+    Third Level Heading: <h3>
+How do you declare the document type to be html?
+    doctype html
+What is valid javascript syntax for if, else, for, while, switch statements?
+    if (condition) {
+    // Code to execute if the condition is true
+    } else if (anotherCondition) {
+        // Code to execute if another condition is true
+    } else {
+        // Code to execute if no condition is true
+    }
+
+    for (let i = 0; i < 5; i++) {
+        console.log(`Iteration ${i}`);
+        }
+
+    let count = 0;
+    while (count < 3) {
+        console.log(`Count: ${count}`);
+        count++;
+        }
+
+    const day = "Monday";
+
+    switch (day) {
+        case "Monday":
+            console.log("It's the start of the week.");
+            break;
+        case "Friday":
+            console.log("It's almost the weekend!");
+            break;
+        default:
+            console.log("It's a regular day.");
+    }
+
+
+
+
+
+What is the correct syntax for creating a javascript object?
+    var objectName = {
+        key1: value1,
+        key2: value2,
+        // More key-value pairs
+        };
+Is is possible to add new properties to javascript objects?
+    yes
+If you want to include JavaScript on an HTML page, which tag do you use?
+    script
+Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected?
+    document.getElementById("yourElementId").textContent = "crow";
+Which of the following correctly describes JSON?
+    JSON (JavaScript Object Notation) is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate.
+What does the console command chmod, pwd, cd, ls, vim, nano, mkdir, mv, rm, man, ssh, ps, wget, sudo  do?
+    cd- course directory
+    ls - list 
+    mkdir - make directory 
+    rm - remove
+    chmod- permissions?
+    pwd - print working dir
+    vim - text editor
+    nano - another text editor
+    mv - move files
+    man - manual for things
+    ssh - secure shell 
+    ps - shows info ion the running process like ids
+    wget - downloading things from int
+    sudo - stands for "superuser do" and is used to execute a command with superuser or administrative privileges. It's often used to perform system administration tasks that require elevated permissions.
+Which of the following console command creates a remote shell session?
+    ssh
+Which of the following is true when the -la parameter is specified for the ls console command?
+    the hidden one show
+Which of the following is true for the domain name banana.fruit.bozo.click, which is the top level domain, which is a subdomain, which is a root domain?
+    In the domain name "banana.fruit.bozo.click," "click" is the top-level domain (TLD), "bozo" is a subdomain, and "fruit" is also a subdomain. "banana" is a subdomain of "fruit."
+Is a web certificate is necessary to use HTTPS.
+    yes
+Can a DNS A record can point to an IP address or another A record.
+    both, usually IP
+Port 443, 80, 22 is reserved for which protocol?
+    HTTPS, HTTP, SSH
+What will the following code using Promises output when executed?
+
+no other element can have the same ID?
+ID = #
+
+Elements in HTML are the building blocks of a web page. Elements are represented by HTML tags, such as <p>, <div>, <h1>, and many others. Each tag corresponds to a specific type of element, like paragraphs, headings, links, images, and so on.
+You can select elements based on their HTML tag names using element selectors in CSS.
+IDs are unique and can be applied to only one element on a page, while elements represent various HTML tags and can be applied to multiple instances of the same tag.
+
+
+
+use which node to find the path
+do npm stuff in the node.md if I need. also creating a web server and an API
+        const http = require('http');
+        const server = http.createServer(function (req, res) {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write(`<h1>Hello Node.js! [${req.method}] ${req.url}</h1>`);
+        res.end();
+        });
+
+        server.listen(8080, () => {
+        console.log(`Web service listening on port 8080`);
+        });
+                / switch content type to application/JSON in orde to make it and JSON and do JSON.stringify(something) in the res.write place
+
+
+
+
+
