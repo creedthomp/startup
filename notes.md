@@ -1,7 +1,13 @@
 use dig in the terminal with the url to find the IP address
 set up dns and https by next time 
- IP 54.160.183.218         
+ IP 54.160.183.218     
+
+ ssh -i /Users/creedthompson/downloads/creedtrevor12.pem ubuntu@creedthompson.click
+
 ./deployFiles.sh -k ~/downloads/creedtrevor12.pem -h creedthompson.click -s startup
+
+mongodb+srv://creethomp:<password>@cluster0.b9daalo.mongodb.net/?retryWrites=true&w=majority
+
 
 STARTUP IDEAS;
     after logging in there is a home page with the graph and from there you can click on different tabs to direct and insert mole mileage etc
@@ -413,6 +419,45 @@ do npm stuff in the node.md if I need. also creating a web server and an API
                 / switch content type to application/JSON in orde to make it and JSON and do JSON.stringify(something) in the res.write place
 
 
+
+
+
+URL. this is an example. only the first two elements are necessary. <scheme>://<domain name>:<port>/<path>?<parameters>#<anchor>
+Port numbers allow a single device to support multiple protocols (e.g. HTTP, HTTPS, FTP, or SSH) as well as different types of services (e.g. search, document, or authentication).
+URL - unifor resource locator 
+HTTP - hypertext transfer protocol
+
+
+defining routes
+    request and response object
+    app.get('/store/:storeName', (req, res, next) => {
+        res.send({name: req.params.storeName});
+        });
+
+        // Wildcard - matches /store/x and /star/y
+        app.put('/st*/:storeName', (req, res) => res.send({update: req.params.storeName}));
+
+        // Pure regular expression
+        app.delete(/\/store\/(.+)/, (req, res) => res.send({delete: req.params[0]}));
+
+middleware
+    function middlewareName(req, res, next)
+creating your own 
+    app.use((req, res, next) => {
+        console.log(req.originalUrl);
+        next();
+    });
+    use the next function for a middleware chain 
+built in middle ware 
+    app.use(express.static('public'));
+
+
+Data services
+    data bases are great for data persistance
+    CRUD create read update delete
+
+
+hashing is making it so passwords are encrypted and can't be hacked 
 
 
 
