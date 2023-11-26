@@ -459,5 +459,25 @@ Data services
 
 hashing is making it so passwords are encrypted and can't be hacked 
 
+to test endpoints I might need to go back and download some stuff
 
 
+{
+  "name": "startup",
+  "version": "1.0.0",
+  "description": "My idea is to have a website where someone can login and enter how many miles they ran and what shoe they used. The database will store how many miles are on each shoe so the person is aware of when to get new shoes. I am on the BYU cross country team and we run up to 100 miles a week, and shoes can generally handle 300 to 400 miles so it can be helpful to know how many miles are on each shoe so the person can be aware of when to retire the shoes and get new ones.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Creed Thompson",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creedthomp/startup"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

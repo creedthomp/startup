@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="mainex.css" />
+        <link rel="stylesheet" href="index.css" />
+
+        <script src="login.js"></script>
+        
+    </head>
+
+    <body>
+    
+        <header>
+            <h1> Running Shoe <br> Mileage Tracker</h1>
+            <nav>
+                <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
+                <menu>
+                <li><a style = "color:aliceblue" href="index.html">Home</a></li>
+                <li><a style = "color:aliceblue" href="shoe.html">Add Miles</a></li>
+                <li><a style = "color:aliceblue" href="chart.html">Mileage Chart</a></li>
+                <li><a style = "color:aliceblue" href="about.html">About</a></li>
+                </menu>
+            </nav>
+        </header>
+
+        
+           <!--- <h1 class= "center" >Running shoe mileage tracker </h1>
+            <h2>BYU XC</h2> -->
+            
+    
+        <main>
+            <div class= "center">
+                <img class= "center" src= "http://universe.byu.edu/wp-content/uploads/2015/11/Modern-Sailor-Cougar1.jpg" width="100">
+            </div>
+            <input  type="text" id="Username" placeholder="USERNAME" />
+            <button type="submit" onclick="login()">Login</button>
+        </main>
+
+
+         <footer>
+            <div style = "color:black" class = "center" id="quote-container"></div>
+
+           
+            <script defer>
+                // Check if the current page is not index.html before fetching the quote
+                if (window.location.pathname !== '/index.html') {
+                    fetch('/')
+                        .then(response => response.json())
+                        // .then(data => {
+                        //     const quoteContainer = document.getElementById('quote-container');
+                        //     quoteContainer.innerText = data.quote;
+                        // })
+                        .catch(error => console.error('Error fetching quote:', error));
+                }
+            </script>
+
+        </footer>
+    </body>
+
