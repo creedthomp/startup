@@ -1,12 +1,18 @@
 use dig in the terminal with the url to find the IP address
 set up dns and https by next time 
+
+git add .
+git commit -m "message"
+git push
+
  IP 54.160.183.218     
 
  ssh -i /Users/creedthompson/downloads/creedtrevor12.pem ubuntu@creedthompson.click
 
 ./deployFiles.sh -k ~/downloads/creedtrevor12.pem -h creedthompson.click -s startup
 
-mongodb+srv://creethomp:<password>@cluster0.b9daalo.mongodb.net/?retryWrites=true&w=majority
+mongodb+srv://creedthomp:<password>@cluster0.2glq8q4.mongodb.net/?retryWrites=true&w=majority
+replace with creedtrevor12
 
 
 STARTUP IDEAS;

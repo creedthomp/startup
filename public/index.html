@@ -40,11 +40,14 @@
         </main>
 
 
-         <footer>
-            <div style = "color:black" class = "center" id="quote-container"></div>
+         <!-- Add this at the end of your body tag in index.html -->
+            <footer>
+                <p class = "center" style = "color: black" id="quote-placeholder">Loading quote...</p>
+            </footer>
+
 
            
-            <script defer>
+            <!-- <script defer>
                 // Check if the current page is not index.html before fetching the quote
                 if (window.location.pathname !== '/index.html') {
                     fetch('/')
@@ -55,8 +58,29 @@
                         // })
                         .catch(error => console.error('Error fetching quote:', error));
                 }
-            </script>
+            </script> -->
 
-        </footer>
+
+        
+        <script>
+            // Function to fetch and display the quote
+            function fetchAndDisplayQuote() {
+                fetch('/api/quotes')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Update the content of the placeholder with the fetched quote
+                        document.getElementById('quote-placeholder').textContent = data.quote;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching quote:', error);
+                        // Update the placeholder text in case of an error
+                        document.getElementById('quote-placeholder').textContent = 'Error loading quote';
+                    });
+            }
+        
+            // Call the function when the page loads
+            fetchAndDisplayQuote();
+        </script>
+        
     </body>
 

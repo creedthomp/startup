@@ -9,6 +9,20 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+const quotes = [
+  "The trials of miles; miles of trials.",
+  "Everyone must choose one thing. The pain of discipline or the pain of regret.",
+  "Consistent compitence = eventual excellence."
+];
+
+// Add this endpoint after the static content hosting middleware
+app.get('/api/quotes', (_req, res) => {
+  console.log('Request received for /api/quotes');
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  res.json({ quote: randomQuote });
+});
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
@@ -66,9 +80,10 @@ app.listen(PORT, () => {
 // // Serve up the front-end static content hosting
 // app.use(express.static('public'));
 
-// // // Router for service endpoints
-// // var apiRouter = express.Router();
-// // app.use(`/api`, apiRouter);
+// Router for service endpoints
+// var apiRouter = express.Router();
+// app.use(`/api`, apiRouter);
+
 // const quotes = [
 //   "The trials of miles; miles of trials.",
 //   "Everyone must choose one thing. The pain of discipline or the pain of regret.",
