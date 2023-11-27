@@ -15,6 +15,9 @@ mongodb+srv://creedthomp:<password>@cluster0.2glq8q4.mongodb.net/?retryWrites=tr
 replace with creedtrevor12
 
 
+make sure to do npm init -y ect and do the new deploy methods
+
+
 STARTUP IDEAS;
     after logging in there is a home page with the graph and from there you can click on different tabs to direct and insert mole mileage etc
 

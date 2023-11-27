@@ -11,9 +11,15 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/creedthomp/startup"
+    "url": "git+https://github.com/creedthomp/startup.git"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
     "mongodb": "^6.3.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/creedthomp/startup/issues"
+  },
+  "homepage": "https://github.com/creedthomp/startup#readme"
 }

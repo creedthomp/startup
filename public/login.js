@@ -10,4 +10,4 @@ function login() {
   
   // how to make my button take me to the shoe.html?
 
-  document.getElementById("loginbutton").addEventListener("click", alert("I don't suck"));
+  //document.getElementById("loginbutton").addEventListener("click", alert("I don't suck"));
