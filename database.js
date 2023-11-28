@@ -14,3 +14,19 @@ const shoeCollection = db.collection('shoe');
   console.log(`Unable to connect to database with ${url} because ${ex.message}`);
   process.exit(1);
 });
+
+async function addShoeData(shoeData) {
+    const result = await shoeCollection.insertOne(shoeData);
+    return result;
+  }
+
+
+  function getShoeData() {
+    const query = {}; // define your query criteria
+    const options = {}; // define options like sorting, limiting
+    const cursor = shoeCollection.find(query, options);
+    return cursor.toArray();
+  }
+
+  
+  module.exports = { addShoeData, getShoeData };

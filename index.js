@@ -40,26 +40,7 @@ app.post('/api/shoe', async (req, res) => {
 
 
 
-// // const express = require('express');
-// // const app = express();
-// // const http = require('http');
-// // const server = http.createServer(function (req, res) {
-// //   res.writeHead(200, { 'Content-Type': 'text/html' });
-// //   res.write(`<h1>Hello Node.js! [${req.method}] ${req.url}</h1>`);
-// //   res.end();
-// // });
 
-// // server.listen(8080, () => {
-// //   console.log(`Web service listening on port 8080`);
-// // });
-// // // I need to save it before running it in the console
-
-// // app.use((req, res, next) => {
-// //     console.log(req.originalUrl);
-// //     next();
-// //   });
-// // // idk if this is supposed to be here but ig we will see 
-// // app.use(express.static('public'));
 
 
 
