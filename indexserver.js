@@ -28,6 +28,15 @@ app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
 
+app.post('/api/shoe', async (req, res) => {
+  try {
+    const shoeData = req.body;
+    const result = await addShoeData(shoeData);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 
 
