@@ -1,45 +1,118 @@
-// function shoe() {
-//     const nameEl = document.querySelector("#shoe");
-//     localStorage.setItem("shoe", nameEl.value);
-//     //window.location.href = "play.html";
-//   }
+// function shoemiles() {
+//     const shoename = document.querySelector("#shoe").value;
+//     const miles = parseFloat(document.querySelector("#miles").value);
+//     const username = localStorage.getItem("Username");
+
+//     // Prepare the data to be sent to the server
+//     const shoeData = { username, shoe: shoename, miles };
+
+//     // Send a POST request to the server
+//     fetch('/api/shoe', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(shoeData)
+//     })
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log('Success:', data);
+//         // Redirect to chart.html after successful data submission
+//         window.location.href = "chart.html";
+//     })
+//     .catch((error) => {
+//         console.error('Error:', error);
+//     });
+// }
 
 
-
-  // how do I keep the miles and the shoe together 
 function shoemiles() {
     const shoename = document.querySelector("#shoe").value;
     const miles = parseFloat(document.querySelector("#miles").value);
-    const username = localStorage.getItem("Username");
+    const username = localStorage.getItem("Username"); // Assuming username is still in localStorage
 
-    const mymap = JSON.parse(localStorage.getItem('usermap')) || {};
+    const shoeData = { username, shoe: shoename, miles };
 
-    if (!mymap[username]) {
-        mymap[username] = [];
-    }
-
-    const userlist = mymap[username];
-
-    // Check if the userlist is not an empty array
-    if (userlist.length > 0) {
-        for (const data of userlist) {
-            if (data.shoe === shoename) {
-                // Convert miles to a number and add it to the existing miles
-                // console.log(data.miles);
-                // console.log(miles);
-                data.miles = parseInt(data.miles, 10) + miles;
-
-                localStorage.setItem('usermap', JSON.stringify(mymap));
-                window.location.href = "chart.html";
-                return; // Exit the loop since we found and updated the data
-            }
+    fetch('/api/shoe', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(shoeData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        window.location.href = "chart.html";
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
 
-    // If the shoe is not found in the existing list, add it as a new entry
-    mymap[username].push({ shoe: shoename, miles: miles });
-    localStorage.setItem('usermap', JSON.stringify(mymap));
-    window.location.href = "chart.html";
+
+//this code ^^ that chat gave me doesnt enter the data to the chart or send me to the next page 
+
+
+
+
+// function shoemiles() {
+//     const shoename = document.querySelector("#shoe").value;
+//     const miles = parseFloat(document.querySelector("#miles").value);
+//     const username = localStorage.getItem("Username");
+
+//     const mymap = JSON.parse(localStorage.getItem('usermap')) || {};
+
+//     if (!mymap[username]) {
+//         mymap[username] = [];
+//     }
+
+//     const userlist = mymap[username];
+
+//     // Check if the userlist is not an empty array
+//     if (userlist.length > 0) {
+//         for (const data of userlist) {
+//             if (data.shoe === shoename) {
+//                 // Convert miles to a number and add it to the existing miles
+//                 // console.log(data.miles);
+//                 // console.log(miles);
+//                 data.miles = parseInt(data.miles, 10) + miles;
+
+//                 localStorage.setItem('usermap', JSON.stringify(mymap));
+//                 window.location.href = "chart.html";
+//                 return; // Exit the loop since we found and updated the data
+//             }
+//         }
+//     }
+
+//     // If the shoe is not found in the existing list, add it as a new entry
+//     mymap[username].push({ shoe: shoename, miles: miles });
+//     localStorage.setItem('usermap', JSON.stringify(mymap));
+//     window.location.href = "chart.html";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //   function shoemiles() {
     
     // const shoename = document.querySelector("#shoe");
