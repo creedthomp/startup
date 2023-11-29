@@ -15,9 +15,14 @@ const shoeCollection = db.collection('shoe');
   process.exit(1);
 });
 
+// async function addShoeData(shoeData) {
+//     const result = await shoeCollection.insertOne(shoeData);
+//     return result;
+//   }
+
 async function addShoeData(shoeData) {
-    const result = await shoeCollection.insertOne(shoeData);
-    return result;
+    const collection = db.collection('shoes');
+    await collection.insertOne(shoeData);
   }
 
 

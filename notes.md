@@ -490,3 +490,25 @@ to test endpoints I might need to go back and download some stuff
     "express": "^4.18.2"
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+maybe find the inclass and assets file and look at the example 
+put the vite stuff into public directory??

@@ -1,3 +1,56 @@
+function shoemiles() {
+    // Fetch values from the form
+    const shoename = document.querySelector("#shoe").value;
+    const miles = parseFloat(document.querySelector("#miles").value);
+    const username = localStorage.getItem("Username"); // Assuming you're storing the username in local storage
+
+    // Proceed to make the fetch request
+    fetch('/api/shoe', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, shoe: shoename, miles })
+    })
+    .then(() => window.location.href = "chart.html")
+    .catch(error => console.error('Error:', error));
+}
+
+
+// function shoemiles() {
+//     //window.location.href = "chart.html";
+//     const shoename = document.querySelector("#shoe").value;
+//     const miles = parseFloat(document.querySelector("#miles").value);
+//     const username = localStorage.getItem("Username"); // Assuming username is still in localStorage
+
+//     const shoeData = { username, shoe: shoename, miles };
+
+//     fetch('/api/shoe', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(shoeData)
+//     })
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log('Success:', data);
+//         window.location.href = "chart.html";
+//     })
+//     .catch((error) => {
+//         console.error('Errror:', error);
+//     });
+// }
+
+
+
+
+
 // function shoemiles() {
 //     const shoename = document.querySelector("#shoe").value;
 //     const miles = parseFloat(document.querySelector("#miles").value);
@@ -29,104 +82,113 @@
 //         console.error('Error:', error);
 //     });
 // }
-
-
-function shoemiles() {
-    const shoename = document.querySelector("#shoe").value;
-    const miles = parseFloat(document.querySelector("#miles").value);
-    const username = localStorage.getItem("Username"); // Assuming username is still in localStorage
-
-    const shoeData = { username, shoe: shoename, miles };
-
-    fetch('/api/shoe', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(shoeData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Success:', data);
-        window.location.href = "chart.html";
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-}
-
-
-//this code ^^ that chat gave me doesnt enter the data to the chart or send me to the next page 
-
-
-
+// function direct(){
+    
+//     window.location.href = "chart.html";
+//     alert('please')
+// }
 
 // function shoemiles() {
+//     //window.location.href = "chart.html";
 //     const shoename = document.querySelector("#shoe").value;
 //     const miles = parseFloat(document.querySelector("#miles").value);
-//     const username = localStorage.getItem("Username");
+//     const username = localStorage.getItem("Username"); // Assuming username is still in localStorage
 
-//     const mymap = JSON.parse(localStorage.getItem('usermap')) || {};
+//     const shoeData = { username, shoe: shoename, miles };
 
-//     if (!mymap[username]) {
-//         mymap[username] = [];
-//     }
-
-//     const userlist = mymap[username];
-
-//     // Check if the userlist is not an empty array
-//     if (userlist.length > 0) {
-//         for (const data of userlist) {
-//             if (data.shoe === shoename) {
-//                 // Convert miles to a number and add it to the existing miles
-//                 // console.log(data.miles);
-//                 // console.log(miles);
-//                 data.miles = parseInt(data.miles, 10) + miles;
-
-//                 localStorage.setItem('usermap', JSON.stringify(mymap));
-//                 window.location.href = "chart.html";
-//                 return; // Exit the loop since we found and updated the data
-//             }
+//     fetch('/api/shoe', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(shoeData)
+//     })
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
 //         }
-//     }
-
-//     // If the shoe is not found in the existing list, add it as a new entry
-//     mymap[username].push({ shoe: shoename, miles: miles });
-//     localStorage.setItem('usermap', JSON.stringify(mymap));
-//     window.location.href = "chart.html";
-
-
-
-
-
-
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log('Success:', data);
+//         window.location.href = "chart.html";
+//     })
+//     .catch((error) => {
+//         console.error('Errror:', error);
+//     });
+// }
 
 
 
 
 
+// // use console logs to figure out
+// //this code ^^ that chat gave me doesnt enter the data to the chart or send me to the next page 
 
 
 
-//   function shoemiles() {
+
+// // function shoemiles() {
+// //     const shoename = document.querySelector("#shoe").value;
+// //     const miles = parseFloat(document.querySelector("#miles").value);
+// //     const username = localStorage.getItem("Username");
+
+// //     const mymap = JSON.parse(localStorage.getItem('usermap')) || {};
+
+// //     if (!mymap[username]) {
+// //         mymap[username] = [];
+// //     }
+
+// //     const userlist = mymap[username];
+
+// //     // Check if the userlist is not an empty array
+// //     if (userlist.length > 0) {
+// //         for (const data of userlist) {
+// //             if (data.shoe === shoename) {
+// //                 // Convert miles to a number and add it to the existing miles
+// //                 // console.log(data.miles);
+// //                 // console.log(miles);
+// //                 data.miles = parseInt(data.miles, 10) + miles;
+
+// //                 localStorage.setItem('usermap', JSON.stringify(mymap));
+// //                 window.location.href = "chart.html";
+// //                 return; // Exit the loop since we found and updated the data
+// //             }
+// //         }
+// //     }
+
+// //     // If the shoe is not found in the existing list, add it as a new entry
+// //     mymap[username].push({ shoe: shoename, miles: miles });
+// //     localStorage.setItem('usermap', JSON.stringify(mymap));
+// //     window.location.href = "chart.html";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //   function shoemiles() {
     
-    // const shoename = document.querySelector("#shoe");
-    // const miles = document.querySelector("#miles"); 
-    // const username = localStorage.getItem("Username"); // do I need to maeke this an integer?
-    // // localStorage.setItem("shoe", shoename.value);
-    // // localStorage.setItem("miles", miles.value);
-    // const mymap = JSON.parse(localStorage.getItem('usermap')) || {};
-    // if (!mymap[username]) {
-    //     mymap[username] = [];
-    // }
-    // const userlist = mymap[username]
-    // if (!mymap[username] === []) {
-    //     for (const data of userlist) {
+//     // const shoename = document.querySelector("#shoe");
+//     // const miles = document.querySelector("#miles"); 
+//     // const username = localStorage.getItem("Username"); // do I need to maeke this an integer?
+//     // // localStorage.setItem("shoe", shoename.value);
+//     // // localStorage.setItem("miles", miles.value);
+//     // const mymap = JSON.parse(localStorage.getItem('usermap')) || {};
+//     // if (!mymap[username]) {
+//     //     mymap[username] = [];
+//     // }
+//     // const userlist = mymap[username]
+//     // if (!mymap[username] === []) {
+//     //     for (const data of userlist) {
     //         const shoe = data.shoe;
     //         console.log("fail")
     //         if (shoe == shoename) {
@@ -154,7 +216,7 @@ function shoemiles() {
     // const arrayAsString = JSON.stringify(shoeMilesArray, null, 2);
 
     // alert(arrayAsString);
-    }
+    
 
 
     // function makemap() {
