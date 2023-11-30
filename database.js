@@ -19,16 +19,7 @@ const shoeCollection = db.collection('shoe');
 //     const result = await shoeCollection.insertOne(shoeData);
 //     return result;
 //   }
-async function updateShoeData(username, shoe, miles) {
-    // Logic to check if the shoe already exists for the user
-    // If it does, update the miles; if not, add a new document
-    const existingShoe = await shoeCollection.findOne({ username, shoe });
-    if (existingShoe) {
-        await shoeCollection.updateOne({ username, shoe }, { $inc: { miles: miles } });
-    } else {
-        await shoeCollection.insertOne({ username, shoe, miles });
-    }
-}
+
 async function addShoeData(shoeData) {
     const collection = db.collection('shoes');
     await collection.insertOne(shoeData);
@@ -42,5 +33,15 @@ async function addShoeData(shoeData) {
     return cursor.toArray();
   }
 
+  async function updateShoeData(username, shoe, miles) {
+    // Logic to check if the shoe already exists for the user
+    // If it does, update the miles; if not, add a new document
+    const existingShoe = await shoeCollection.findOne({ username, shoe });
+    if (existingShoe) {
+        await shoeCollection.updateOne({ username, shoe }, { $inc: { miles: miles } });
+    } else {
+        await shoeCollection.insertOne({ username, shoe, miles });
+    }
+}
   
-  module.exports = { addShoeData, getShoeData };
+  module.exports = { addShoeData, getShoeData, updateShoeData };

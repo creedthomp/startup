@@ -24,6 +24,7 @@ app.get('/api/quotes', (_req, res) => {
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
   res.json({ quote: randomQuote });
 });
+
 app.get('/api/shoe', async (req, res) => {
   try {
     const data = await database.getShoeData();

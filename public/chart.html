@@ -56,35 +56,46 @@
     <footer> consistent competence = eventual excellence 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
                 <script> src="chart.js"
-                    fetch('/api/shoe-data')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        const shoeNames = data.map(item => item.shoe); // Extract shoe names
-                        const shoeMiles = data.map(item => item.miles); // Extract miles
-
                     const ShoeList = [];
                     const MileList = [];
-                    // const canvas = document.getElementById('myBarChart');
-                    // const username = localStorage.getItem("Username");
-                    // const userData = JSON.parse(localStorage.getItem('usermap'));
+
+                    fetch('/api/shoe')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            const shoeNames = data.map(item => item.shoe); // Extract shoe names
+                            const shoeMiles = data.map(item => item.miles); // Extract miles
+
+                            shoeNames.forEach(shoe => {
+                                ShoeList.push(shoe);
+                            });
+                            shoeMiles.forEach(miles => {
+                                MileList.push(miles);
+                            });
+                        }); 
+
+                    // const ShoeList = [];
+                    // const MileList = [];
+                    const canvas = document.getElementById('myBarChart');
+                    const username = localStorage.getItem("Username");
+                    const userData = JSON.parse(localStorage.getItem('usermap'));
                     // //console.log('notworked')
                     // if (userData[username] !== undefined) {
                     //     const userShoeData = userData[username];
                     //     //console.log("worked")
                     //     //console.log(userShoeData)
-                    for (const data of userShoeData) {
-                        const shoe = data.shoe;
-                        const miles = data.miles;
-                        ShoeList.push(shoe)
-                        MileList.push(miles)
-                        //console.log(shoe)
-                        //console.log(miles)
-                    }}
+                    // for (const data of userShoeData) {
+                    //     const shoe = data.shoe;
+                    //     const miles = data.miles;
+                    //     ShoeList.push(shoe)
+                    //     MileList.push(miles)
+                    //     //console.log(shoe)
+                    //     //console.log(miles)
+                    // }}
                     
                     // Create a data object with your data
                     const data = {
