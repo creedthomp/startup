@@ -56,31 +56,9 @@
     <footer> consistent competence = eventual excellence 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
                 <script> src="chart.js"
-                    const ShoeList = [];
-                    const MileList = [];
 
-                    fetch('/api/shoe')
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            const shoeNames = data.map(item => item.shoe); // Extract shoe names
-                            const shoeMiles = data.map(item => item.miles); // Extract miles
-
-                            shoeNames.forEach(shoe => {
-                                ShoeList.push(shoe);
-                            });
-                            shoeMiles.forEach(miles => {
-                                MileList.push(miles);
-                            });
-                        }); 
-
-                    // const ShoeList = [];
-                    // const MileList = [];
-                    const canvas = document.getElementById('myBarChart');
+                   function initializeChart(shoeNames, shoeMiles) {
+                   const canvas = document.getElementById('myBarChart');
                     const username = localStorage.getItem("Username");
                     const userData = JSON.parse(localStorage.getItem('usermap'));
                     // //console.log('notworked')
@@ -122,6 +100,87 @@
                             }
                         }
                     }); 
+                }
+                    const ShoeList = [];
+                    const MileList = [];
+
+                    
+
+                    function fetchDataAndInitializeChart() {
+                        const username = localStorage.getItem("Username");
+                        fetch('/api/shoe?user=' + username)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            const shoeNames = data.map(item => item.shoe); // Extract shoe names
+                            const shoeMiles = data.map(item => item.miles); // Extract miles
+
+                            shoeNames.forEach(shoe => {
+                                ShoeList.push(shoe);
+                            });
+                            shoeMiles.forEach(miles => {
+                                MileList.push(miles);
+                            });
+                            initializeChart(shoeNames, shoeMiles);
+                        }); 
+                    }
+                    document.addEventListener('DOMContentLoaded', fetchDataAndInitializeChart);
+                        // .then(ShoeList, MileList => {
+                        // chart(ShoeList, MileList);
+                        //  })
+                    
+
+                    // // const ShoeList = [];
+                    // // const MileList = [];
+                    // const canvas = document.getElementById('myBarChart');
+                    // const username = localStorage.getItem("Username");
+                    // const userData = JSON.parse(localStorage.getItem('usermap'));
+                    // // //console.log('notworked')
+                    // // if (userData[username] !== undefined) {
+                    // //     const userShoeData = userData[username];
+                    // //     //console.log("worked")
+                    // //     //console.log(userShoeData)
+                    // // for (const data of userShoeData) {
+                    // //     const shoe = data.shoe;
+                    // //     const miles = data.miles;
+                    // //     ShoeList.push(shoe)
+                    // //     MileList.push(miles)
+                    // //     //console.log(shoe)
+                    // //     //console.log(miles)
+                    // // }}
+                    
+                    // // Create a data object with your data
+                    // const data = {
+                    //     labels: ShoeList, //[localStorage.getItem("shoe"), localStorage.getItem("Username"), parseFloat(localStorage.getItem("miles")), 'Category 4', 'bruh', 'bruh', 'bruh'],
+                    //     datasets: [{
+                    //         label: 'Miles',
+                    //         data:  MileList, //[parseFloat(localStorage.getItem("miles")), 50, 20, 45, 63, 12, 1, 39], // how do I add more columns for each she ect
+                    //         backgroundColor: 'rgba(100, 100, 100, 0.2)', // Bar color
+                    //         borderColor: 'rgba(22, 22, 210, 1)', // Border color
+                    //         borderWidth: 1, // Border width
+                    //     }]
+                    // };
+                    
+                    // // Create a chart
+                    // const ctx = canvas.getContext('2d');
+                    // const myBarChart = new Chart(ctx, {
+                    //     type: 'bar', // Specify the chart type
+                    //     data: data,
+                    //     options: {
+                    //         scales: {
+                    //             y: {
+                    //                 beginAtZero: true // Start the Y-axis from 0
+                    //             }
+                    //         }
+                    //     }
+                    // }); 
+                
+                
+        
                     </script>
     </footer>
 </html>
