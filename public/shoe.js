@@ -1,21 +1,36 @@
 function shoemiles() {
-    // Fetch values from the form
     const shoename = document.querySelector("#shoe").value;
     const miles = parseFloat(document.querySelector("#miles").value);
-    const username = localStorage.getItem("Username"); // Assuming you're storing the username in local storage
+    const username = localStorage.getItem("Username"); // Assuming username is stored in local storage
 
-    // Proceed to make the fetch request
+    // Prepare data to send to server
+    const shoeData = { username, shoe: shoename, miles };
+
+    // Send POST request to server
     fetch('/api/shoe', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username, shoe: shoename, miles })
+        body: JSON.stringify(shoeData)
     })
-    .then(() => window.location.href = "chart.html")
-    .catch(error => console.error('Error:', error));
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        // Handle successful data submission here
+        // Perhaps redirect to a page or update the UI
+        window.location.href = "chart.html";
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+    });
 }
-
 
 // function shoemiles() {
 //     //window.location.href = "chart.html";
@@ -24,7 +39,7 @@ function shoemiles() {
 //     const username = localStorage.getItem("Username"); // Assuming username is still in localStorage
 
 //     const shoeData = { username, shoe: shoename, miles };
-
+// }
 //     fetch('/api/shoe', {
 //         method: 'POST',
 //         headers: {

@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+app.use(express.json());
+
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -22,18 +24,6 @@ app.get('/api/quotes', (_req, res) => {
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
   res.json({ quote: randomQuote });
 });
-
-
-app.post('/api/shoe', async (req, res) => {
-  try {
-    const shoeData = req.body;
-    await database.addShoeData(shoeData);
-    res.status(200).json({ message: 'Data saved successfully' });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
 app.get('/api/shoe', async (req, res) => {
   try {
     const data = await database.getShoeData();
@@ -43,10 +33,91 @@ app.get('/api/shoe', async (req, res) => {
   }
 });
 
+app.post('/api/shoe', async (req, res) => {
+  try {
+      const { username, shoe, miles } = req.body;
+      // Logic to check if shoe exists for user and update or add accordingly
+      // Use functions from database.js
+      await database.updateShoeData(username, shoe, miles);
+      res.status(200).json({ message: 'Shoe data updated successfully' });
+  } catch (error) {
+      console.error('Error:', error);
+      res.status(500).send('Internal Server Error');
+  }
+});
+// app.post('/api/shoe', async (req, res) => {
+//   try {
+//     const shoeData = req.body;
+//     await database.addShoeData(shoeData);
+//     res.status(200).json({ message: 'Data saved successfully' });
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// });
+
+// app.get('/api/shoe', async (req, res) => {
+//   try {
+//     const data = await database.getShoeData();
+//     res.status(200).json(data);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// });
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+// const database = require('./database');
+// const express = require('express');
+// const path = require('path');
+// const app = express();
+
+// // Serve static files from the "public" directory
+// app.use(express.static(path.join(__dirname, 'public')));
+
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// });
+
+// const quotes = [
+//   "The trials of miles; miles of trials.",
+//   "Everyone must choose one thing. The pain of discipline or the pain of regret.",
+//   "Consistent compitence = eventual excellence."
+// ];
+
+// // Add this endpoint after the static content hosting middleware
+// app.get('/api/quotes', (_req, res) => {
+//   console.log('Request received for /api/quotes');
+//   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+//   res.json({ quote: randomQuote });
+// });
+
+
+// app.post('/api/shoe', async (req, res) => {
+//   try {
+//     const shoeData = req.body;
+//     await database.addShoeData(shoeData);
+//     res.status(200).json({ message: 'Data saved successfully' });
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// });
+
+// app.get('/api/shoe', async (req, res) => {
+//   try {
+//     const data = await database.getShoeData();
+//     res.status(200).json(data);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// });
+
+// const PORT = process.env.PORT || 4000;
+// app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+// });
 
 // app.post('/api/shoe', async (req, res) => {
 //   try {

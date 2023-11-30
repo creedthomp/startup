@@ -512,3 +512,45 @@ to test endpoints I might need to go back and download some stuff
 
 maybe find the inclass and assets file and look at the example 
 put the vite stuff into public directory??
+// app.post('/api/shoe', async (req, res) => {
+//   try {
+//     const shoeData = req.body;
+//     await database.addShoeData(shoeData);
+//     res.status(200).json({ message: 'Data saved successfully' });
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// });
+
+// app.get('/api/shoe', async (req, res) => {
+//   try {
+//     const data = await database.getShoeData();
+//     res.status(200).json(data);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// });
+
+
+
+
+
+function shoemiles() {
+    // Fetch values from the form
+    const shoename = document.querySelector("#shoe").value;
+    const miles = parseFloat(document.querySelector("#miles").value);
+    const username = localStorage.getItem("Username"); // Assuming you're storing the username in local storage
+
+    // Proceed to make the fetch request
+    fetch('/api/shoe', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, shoe: shoename, miles })
+    })
+    .then(() => window.location.href = "chart.html")
+    .catch(error => console.error('Error:', error));
+}
+
+const database = require('./database');
