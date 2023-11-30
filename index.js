@@ -25,14 +25,28 @@ app.get('/api/quotes', (_req, res) => {
   res.json({ quote: randomQuote });
 });
 
+// app.get('/api/shoe', async (req, res) => {
+//   try {
+//     const data = await database.getShoeData();
+//     res.status(200).json(data);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// });
 app.get('/api/shoe', async (req, res) => {
+  const username = req.query.user; // Extract username from query parameter
   try {
-    const data = await database.getShoeData();
-    res.status(200).json(data);
+      const userShoes = await database.getUserShoeData(username);
+      res.json(userShoes);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+      res.status(500).json({ message: error.message });
   }
 });
+// app.get('/api/shoe', async (req, res) => {
+//   const username = req.query.user; // Retrieve username from query
+//   const userShoes = await database.getUserShoeData(username);
+//   res.json(userShoes);
+// });
 
 app.post('/api/shoe', async (req, res) => {
   try {

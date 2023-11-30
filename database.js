@@ -26,12 +26,18 @@ async function addShoeData(shoeData) {
   }
 
 
-  function getShoeData() {
-    const query = {}; // define your query criteria
-    const options = {}; // define options like sorting, limiting
-    const cursor = shoeCollection.find(query, options);
-    return cursor.toArray();
-  }
+//   function getShoeData() {
+//     const query = {}; // define your query criteria
+//     const options = {}; // define options like sorting, limiting
+//     const cursor = shoeCollection.find(query, options);
+//     return cursor.toArray();
+//   }
+
+  async function getUserShoeData(username) {
+    const query = { username: username }; // Filter data based on the username
+    const userShoes = await shoeCollection.find(query).toArray();
+    return userShoes;
+}
 
   async function updateShoeData(username, shoe, miles) {
     // Logic to check if the shoe already exists for the user
@@ -44,4 +50,4 @@ async function addShoeData(shoeData) {
     }
 }
   
-  module.exports = { addShoeData, getShoeData, updateShoeData };
+  module.exports = { addShoeData, updateShoeData, getUserShoeData };
