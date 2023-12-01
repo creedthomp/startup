@@ -10,3 +10,7 @@ the user will be able to see what shoe has how many miles and how many miles the
 ![MY shoe](shoe.png)
 ![login](login.png)
 ![graph](graph.png)
+
+
+
+For my startup service I used index.js and index.html to randomly choose a quote from a quote list that I provided. The quote is displayed in the footer of the index.html (home) page on my website. 
