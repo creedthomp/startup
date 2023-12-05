@@ -59,7 +59,7 @@
 
                    function initializeChart(shoeNames, shoeMiles) {
                    const canvas = document.getElementById('myBarChart');
-                    const username = localStorage.getItem("Username");
+                    const username = localStorage.getItem("userName");
                     const userData = JSON.parse(localStorage.getItem('usermap'));
                     // //console.log('notworked')
                     // if (userData[username] !== undefined) {
@@ -107,7 +107,7 @@
                     
 
                     function fetchDataAndInitializeChart() {
-                        const username = localStorage.getItem("Username");
+                        const username = localStorage.getItem("userName");
                         fetch('/api/shoe?user=' + username)
                         .then(response => {
                             if (!response.ok) {

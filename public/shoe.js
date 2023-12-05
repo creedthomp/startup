@@ -1,7 +1,7 @@
 function shoemiles() {
     const shoename = document.querySelector("#shoe").value;
     const miles = parseFloat(document.querySelector("#miles").value);
-    const username = localStorage.getItem("Username"); // Assuming username is stored in local storage
+    const username = localStorage.getItem("userName"); // Assuming username is stored in local storage
 
     // Prepare data to send to server
     const shoeData = { username, shoe: shoename, miles };

@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="mainex.css" />
         <link rel="stylesheet" href="index.css" />
+        
 
         <script src="login.js"></script>
         
@@ -31,13 +32,51 @@
             <h2>BYU XC</h2> -->
             
     
-        <main>
+        <!-- <main>
             <div class= "center">
                 <img class= "center" src= "http://universe.byu.edu/wp-content/uploads/2015/11/Modern-Sailor-Cougar1.jpg" width="100">
             </div>
             <input  type="text" id="Username" placeholder="USERNAME" />
             <button type="submit" onclick="login()">Login</button>
-        </main>
+        </main> -->
+        
+        <main class="container-fluid bg-secondary text-center">
+            <div>
+                <div class= "center">
+                    <img class= "center" src= "http://universe.byu.edu/wp-content/uploads/2015/11/Modern-Sailor-Cougar1.jpg" width="100">
+                </div>
+              <!-- Displayed when needing authentication -->
+              <div id="loginControls" style="display: none">
+                <div class="input-group mb-3">
+                  <input class="form-control" type="text" id="userName" placeholder="your@email.com" />
+                </div>
+                <div class="input-group mb-3">
+                  <input class="form-control" type="text" id="userPassword" placeholder="password" />
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="loginUser()">Login</button>
+                <button type="button" class="btn btn-primary" onclick="createUser()">Create</button>
+              </div>
+              <!-- Displayed when ready to play -->
+              <div id="playControls" style="display: none">
+                <div id="playerName"></div>
+                <button type="button" class="btn btn-primary" onclick="play()">Play</button>
+                <button type="button" class="btn btn-secondary" onclick="logout()">Logout</button>
+              </div>
+            </div>
+      
+            <!-- Error dialog
+            <div class="modal fade" id="msgModal" tabindex="-1">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content text-dark">
+                  <div class="modal-body">error message here</div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </main>
 
 
          <!-- Add this at the end of your body tag in index.html -->
@@ -60,9 +99,10 @@
                 }
             </script> -->
 
-
+            <script src="login.js"></script>
         
         <script>
+            
             // Function to fetch and display the quote
             function fetchAndDisplayQuote() {
                 fetch('/api/quotes')
