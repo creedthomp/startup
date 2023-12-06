@@ -5,7 +5,7 @@
 
 // app.use(express.json());
 
-
+const path = require('path');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const express = require('express');
@@ -54,7 +54,7 @@ apiRouter.post('/auth/login', async (req, res) => {
       return;
     }
   }
-  res.status(401).send({ msg: 'Unauthorized' });
+  res.status(401).send({ msg: 'Unauthorize' });
 });
 
 // DeleteAuth token if stored in cookie
@@ -75,18 +75,20 @@ apiRouter.get('/user/:email', async (req, res) => {
 });
 
 // secureApiRouter verifies credentials for endpoints
-var secureApiRouter = express.Router();
-apiRouter.use(secureApiRouter);
+// var secureApiRouter = express.Router();
+// apiRouter.use(secureApiRouter);
 
-secureApiRouter.use(async (req, res, next) => {
-  authToken = req.cookies[authCookieName];
-  const user = await database.getUserByToken(authToken);
-  if (user) {
-    next();
-  } else {
-    res.status(401).send({ msg: 'Unauthorized' });
-  }
-});
+// secureApiRouter.use(async (req, res, next) => {
+//   authToken = req.cookies[authCookieName];
+//   const user = await database.getUserByToken(authToken);
+//   if (user) {
+//     next();
+//   } else {
+//     res.status(401).send({ msg: 'Unauthori' });
+//   }
+// });
+
+//commenting this out made my quotes work.. ^^^
 
 //to here 
 
@@ -160,6 +162,14 @@ app.post('/api/shoe', async (req, res) => {
 //     res.status(500).json({ message: error.message });
 //   }
 // });
+
+function setAuthCookie(res, authToken) {
+  res.cookie(authCookieName, authToken, {
+    secure: true,
+    httpOnly: true,
+    sameSite: 'strict',
+  });
+}
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
