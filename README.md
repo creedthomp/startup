@@ -14,3 +14,6 @@ the user will be able to see what shoe has how many miles and how many miles the
 
 
 For my startup service I used index.js and index.html to randomly choose a quote from a quote list that I provided. The quote is displayed in the footer of the index.html (home) page on my website. 
+
+
+for my startup websocket I used the simon to help me display the mileage of other users shoes.
