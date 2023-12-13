@@ -11,6 +11,8 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const app = express();
 const database = require('./database.js');
+const { peerProxy } = require('./peerProxy.js');
+//web
 
 const authCookieName = 'token';
 app.use(express.json()); 
@@ -23,6 +25,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+app.set('trust proxy', true);
+//web
 
 // here 
 var apiRouter = express.Router();
@@ -172,9 +176,14 @@ function setAuthCookie(res, authToken) {
 }
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+// app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+// });
+const httpService = app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });
+
+peerProxy(httpService);
 
 // const database = require('./database');
 // const express = require('express');

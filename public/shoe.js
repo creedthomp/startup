@@ -44,6 +44,7 @@ class ShoeTracker {
     configureWebSocket() {
         const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
         this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+        //this.socket = new WebSocket(`https://startup.creedthompson.click/shoe.html`);
 
 
         this.socket.onopen = () => {
