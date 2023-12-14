@@ -17,3 +17,6 @@ For my startup service I used index.js and index.html to randomly choose a quote
 
 
 for my startup websocket I used the simon to help me display the mileage of other users shoes.
+
+
+For JSX I learned a lot about smushing together html and JS and I spent many hours trying to perfect it but I couldn't quite get it 100% working. I still learned a lot but unfortunately I will have to end here.
